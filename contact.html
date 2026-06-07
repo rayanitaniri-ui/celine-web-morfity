@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Your Product — The Morfity Development</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<style>
+/* ── CONTACT LAYOUT ─── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;padding:80px 0}
+.contact-info h2{font-size:clamp(36px,4.5vw,56px);font-weight:900;letter-spacing:-.03em;line-height:1.08;margin-bottom:20px}
+.contact-info p{font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:36px}
+
+.contact-details{display:flex;flex-direction:column;gap:24px;margin-bottom:40px}
+.contact-detail-item{}
+.contact-detail-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:4px}
+.contact-detail-val{font-size:16px;font-weight:600;color:#111}
+.contact-detail-sub{font-size:13px;color:var(--muted);margin-top:2px}
+
+.response-promise{background:var(--surf-alt);border-radius:14px;padding:24px;border-left:3px solid var(--teal)}
+.response-promise h4{font-size:14px;font-weight:700;margin-bottom:6px}
+.response-promise p{font-size:13px;color:var(--muted);line-height:1.6;margin:0}
+
+/* ── FORM TABS ─── */
+.form-tabs{display:flex;gap:0;margin-bottom:28px;border:1px solid var(--border);border-radius:12px;padding:4px;background:var(--surf-alt)}
+.form-tab{flex:1;padding:10px 16px;border:none;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;background:transparent;color:var(--muted);font-family:inherit;transition:background .14s,color .14s}
+.form-tab.active{background:#fff;color:#111;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.form-panel{display:none}
+.form-panel.active{display:flex;flex-direction:column;gap:16px}
+
+/* ── FORM ─── */
+.contact-form-wrap{}
+.form-title{font-size:22px;font-weight:800;letter-spacing:-.01em;margin-bottom:6px}
+.form-sub{font-size:14px;color:var(--muted);margin-bottom:24px}
+.contact-form{display:flex;flex-direction:column;gap:16px}
+.f-row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-group{display:flex;flex-direction:column}
+.f-submit{
+  width:100%;padding:17px;
+  background:#111;border:none;border-radius:12px;
+  font-size:15px;font-weight:700;color:#fff;
+  cursor:pointer;font-family:inherit;
+  transition:background .14s;
+  position:relative;overflow:hidden;
+}
+.f-submit:hover{background:#333}
+.f-submit:disabled{opacity:.6;cursor:not-allowed}
+
+/* ── SUCCESS STATE ─── */
+.form-success{display:none;text-align:center;padding:56px 32px;background:var(--surf);border-radius:20px}
+.form-success.visible{display:block}
+.contact-form.hidden{display:none}
+.success-icon{font-size:48px;margin-bottom:16px;line-height:1}
+.form-success h3{font-size:24px;font-weight:800;letter-spacing:-.01em;margin-bottom:10px}
+.form-success p{font-size:15px;color:var(--muted);line-height:1.6;max-width:380px;margin:0 auto}
+
+/* ── WHAT HAPPENS NEXT ─── */
+.next-steps{margin-top:64px;padding-top:64px;border-top:1px solid var(--border)}
+.next-steps h2{font-size:28px;font-weight:800;letter-spacing:-.01em;margin-bottom:40px}
+.next-steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.next-step{display:flex;gap:20px;align-items:flex-start}
+.next-step-num{font-size:32px;font-weight:900;color:var(--teal);opacity:.35;line-height:1;flex-shrink:0}
+.next-step h3{font-size:16px;font-weight:700;margin-bottom:6px}
+.next-step p{font-size:14px;color:var(--muted);line-height:1.6}
+
+@media(max-width:960px){.contact-grid{grid-template-columns:1fr;gap:48px}.next-steps-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.f-row-2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-left">
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="portfolio.html" class="nav-link">Portfolio</a>
+  </div>
+  <a href="index.html" class="nav-center">
+    <img src="mq2msxnm-image.png" alt="The Morfity Development" class="nav-logo">
+  </a>
+  <div class="nav-right">
+    <a href="case-studies.html" class="nav-link">Case Studies</a>
+    <a href="tech-stack.html" class="nav-link">Tech Stack</a>
+    <a href="contact.html" class="pill pill-teal pill-sm active">Build Your Product</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">Start a Project</div>
+    <h1>Build Your Product<br>With Us</h1>
+    <p class="hero-sub">Tell us what you're building. We'll review it, ask the right questions, and come back with a technical scope and honest timeline in 5 business days.</p>
+  </div>
+</section>
+
+<!-- CONTACT MAIN -->
+<section>
+  <div class="container">
+    <div class="contact-grid">
+      <!-- LEFT: Info -->
+      <div class="contact-info">
+        <h2>Let's Talk About Your Software</h2>
+        <p>We work with startups building their first product and enterprise teams launching new digital capabilities. If you need software built properly — not patched together — we want to hear from you.</p>
+        <div class="contact-details">
+          <div class="contact-detail-item">
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-val">dev@themorfity.com</div>
+            <div class="contact-detail-sub">Monitored daily, response within 24 hours</div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="contact-detail-label">Offices</div>
+            <div class="contact-detail-val">Beirut, Lebanon</div>
+            <div class="contact-detail-sub">Also available remotely for Gulf and international clients</div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="contact-detail-label">Discovery Call</div>
+            <div class="contact-detail-val">30 minutes, no commitment</div>
+            <div class="contact-detail-sub">Available on Zoom, Google Meet, or in person in Beirut</div>
+          </div>
+        </div>
+        <div class="response-promise">
+          <h4>What happens after you submit</h4>
+          <p>Our engineering lead reviews every project request personally. You'll receive a reply within 24 hours confirming receipt and proposing a discovery call time. After the call, we deliver a technical scope document in 5 business days — no charge, no obligation.</p>
+        </div>
+      </div>
+      <!-- RIGHT: Form -->
+      <div class="contact-form-wrap">
+        <div class="form-title">Start a Project</div>
+        <div class="form-sub">Choose how you'd like to reach us — a quick inquiry or a full technical estimation brief.</div>
+
+        <!-- TAB SWITCHER -->
+        <div class="form-tabs" role="tablist">
+          <button class="form-tab active" id="tab-inquiry" role="tab" aria-selected="true" aria-controls="panel-inquiry" onclick="switchTab('inquiry')">Developer Inquiry</button>
+          <button class="form-tab" id="tab-estimate" role="tab" aria-selected="false" aria-controls="panel-estimate" onclick="switchTab('estimate')">Project Estimation</button>
+        </div>
+
+        <!-- PANEL 1: DEVELOPER INQUIRY -->
+        <div class="form-panel active" id="panel-inquiry" role="tabpanel">
+          <form class="contact-form" id="inquiryForm" novalidate>
+            <div class="f-row-2">
+              <div class="f-group">
+                <label class="f-label" for="f-name">Your Name *</label>
+                <input class="f-input" id="f-name" type="text" placeholder="Full name" required>
+              </div>
+              <div class="f-group">
+                <label class="f-label" for="f-email">Email Address *</label>
+                <input class="f-input" id="f-email" type="email" placeholder="you@company.com" required>
+              </div>
+            </div>
+            <div class="f-row-2">
+              <div class="f-group">
+                <label class="f-label" for="f-company">Company / Organisation</label>
+                <input class="f-input" id="f-company" type="text" placeholder="Company name">
+              </div>
+              <div class="f-group">
+                <label class="f-label" for="f-role">Your Role</label>
+                <input class="f-input" id="f-role" type="text" placeholder="e.g. Founder, CTO, Product Manager">
+              </div>
+            </div>
+            <div class="f-group">
+              <label class="f-label" for="f-type">Project Type *</label>
+              <select class="f-select" id="f-type" required>
+                <option value="" disabled selected>Select project type</option>
+                <option value="saas">SaaS Platform</option>
+                <option value="webapp">Custom Web Application</option>
+                <option value="api">API System / Integration</option>
+                <option value="mvp">MVP Development</option>
+                <option value="cloud">Cloud Architecture / DevOps</option>
+                <option value="modernisation">System Modernisation</option>
+                <option value="other">Other / Not Sure Yet</option>
+              </select>
+            </div>
+            <div class="f-group">
+              <label class="f-label" for="f-desc">Describe Your Project *</label>
+              <textarea class="f-textarea" id="f-desc" placeholder="What are you building? Who is it for? What problem does it solve?" required></textarea>
+            </div>
+            <div id="inquiry-error" style="display:none;color:#dc2626;font-size:14px;font-weight:600;padding:12px 16px;background:#fef2f2;border-radius:10px"></div>
+            <button class="f-submit" type="submit">Submit Inquiry →</button>
+          </form>
+          <div class="form-success" id="inquirySuccess">
+            <div class="success-icon">✓</div>
+            <h3>Inquiry received.</h3>
+            <p>Our engineering lead will review your project and reply within 24 hours. Talk soon.</p>
+          </div>
+        </div>
+
+        <!-- PANEL 2: PROJECT ESTIMATION -->
+        <div class="form-panel" id="panel-estimate" role="tabpanel">
+          <form class="contact-form" id="estimateForm" novalidate>
+            <div class="f-row-2">
+              <div class="f-group">
+                <label class="f-label" for="e-name">Your Name *</label>
+                <input class="f-input" id="e-name" type="text" placeholder="Full name" required>
+              </div>
+              <div class="f-group">
+                <label class="f-label" for="e-email">Email Address *</label>
+                <input class="f-input" id="e-email" type="email" placeholder="you@company.com" required>
+              </div>
+            </div>
+            <div class="f-group">
+              <label class="f-label" for="e-type">Project Type *</label>
+              <select class="f-select" id="e-type" required>
+                <option value="" disabled selected>Select project type</option>
+                <option value="saas">SaaS Platform</option>
+                <option value="webapp">Custom Web Application</option>
+                <option value="api">API System / Integration</option>
+                <option value="mvp">MVP / Prototype</option>
+                <option value="cloud">Cloud Architecture / DevOps</option>
+                <option value="modernisation">System Modernisation / Migration</option>
+              </select>
+            </div>
+            <div class="f-row-2">
+              <div class="f-group">
+                <label class="f-label" for="e-users">Expected Users at Launch</label>
+                <select class="f-select" id="e-users">
+                  <option value="" disabled selected>Expected scale</option>
+                  <option value="under-1k">Under 1,000 users</option>
+                  <option value="1k-10k">1,000 – 10,000 users</option>
+                  <option value="10k-100k">10,000 – 100,000 users</option>
+                  <option value="over-100k">100,000+ users</option>
+                  <option value="unknown">Not sure yet</option>
+                </select>
+              </div>
+              <div class="f-group">
+                <label class="f-label" for="e-stack">Preferred Tech Stack</label>
+                <select class="f-select" id="e-stack">
+                  <option value="" disabled selected>Stack preference</option>
+                  <option value="nextjs-node">Next.js + Node.js (recommended)</option>
+                  <option value="react-node">React + Node.js</option>
+                  <option value="fullstack-other">Other full-stack</option>
+                  <option value="no-pref">No preference — advise me</option>
+                </select>
+              </div>
+            </div>
+            <div class="f-group">
+              <label class="f-label" for="e-features">Core Features Required *</label>
+              <textarea class="f-textarea" id="e-features" placeholder="List the key features: e.g. user auth, multi-tenancy, payment integration, real-time notifications, admin dashboard, API access, mobile-responsive..." required></textarea>
+            </div>
+            <div class="f-row-2">
+              <div class="f-group">
+                <label class="f-label" for="e-integrations">Third-Party Integrations</label>
+                <input class="f-input" id="e-integrations" type="text" placeholder="e.g. Stripe, Twilio, AWS S3, HubSpot">
+              </div>
+              <div class="f-group">
+                <label class="f-label" for="e-existing">Existing Codebase?</label>
+                <select class="f-select" id="e-existing">
+                  <option value="" disabled selected>Starting from…</option>
+                  <option value="scratch">Greenfield — starting from scratch</option>
+                  <option value="legacy">Existing legacy system to migrate</option>
+                  <option value="mvp">Working MVP to scale</option>
+                  <option value="spec">Spec / wireframes ready</option>
+                </select>
+              </div>
+            </div>
+            <div class="f-row-2">
+              <div class="f-group">
+                <label class="f-label" for="e-budget">Budget Range *</label>
+                <select class="f-select" id="e-budget" required>
+                  <option value="" disabled selected>Approximate budget</option>
+                  <option value="under-15k">Under $15,000</option>
+                  <option value="15-40k">$15,000 – $40,000</option>
+                  <option value="40-100k">$40,000 – $100,000</option>
+                  <option value="100k-250k">$100,000 – $250,000</option>
+                  <option value="over-250k">Over $250,000</option>
+                  <option value="not-sure">Not sure yet</option>
+                </select>
+              </div>
+              <div class="f-group">
+                <label class="f-label" for="e-timeline">Target Launch</label>
+                <select class="f-select" id="e-timeline">
+                  <option value="" disabled selected>When do you need to ship?</option>
+                  <option value="asap">As soon as possible</option>
+                  <option value="1-3m">Within 1–3 months</option>
+                  <option value="3-6m">3–6 months</option>
+                  <option value="6-12m">6–12 months</option>
+                  <option value="flexible">Flexible / Planning stage</option>
+                </select>
+              </div>
+            </div>
+            <div id="estimate-error" style="display:none;color:#dc2626;font-size:14px;font-weight:600;padding:12px 16px;background:#fef2f2;border-radius:10px"></div>
+            <button class="f-submit" type="submit">Request Estimation →</button>
+          </form>
+          <div class="form-success" id="estimateSuccess">
+            <div class="success-icon">✓</div>
+            <h3>Estimation request received.</h3>
+            <p>We'll review your technical brief and deliver a written scope with effort estimate and timeline within 5 business days.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHAT HAPPENS NEXT -->
+    <div class="next-steps">
+      <h2>What Happens After You Submit</h2>
+      <div class="next-steps-grid">
+        <div class="next-step">
+          <div class="next-step-num">01</div>
+          <div>
+            <h3>We Review Your Brief</h3>
+            <p>Our engineering lead reads every submission personally. Within 24 hours you'll receive a reply confirming receipt and proposing a 30-minute discovery call — Zoom, Google Meet, or in person in Beirut.</p>
+          </div>
+        </div>
+        <div class="next-step">
+          <div class="next-step-num">02</div>
+          <div>
+            <h3>Discovery Call</h3>
+            <p>We explore your requirements in depth: goals, users, constraints, integrations, and timeline. We'll ask technical questions and identify what we need to spec the project properly.</p>
+          </div>
+        </div>
+        <div class="next-step">
+          <div class="next-step-num">03</div>
+          <div>
+            <h3>Technical Scope</h3>
+            <p>Within 5 business days of the discovery call, we deliver a written technical scope: feature set, architecture overview, effort estimate, and timeline. No charge. No obligation to proceed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="margin-top:80px">
+  <div class="footer-grid">
+    <div>
+      <img src="mq2msxnm-image.png" alt="The Morfity" class="footer-logo">
+      <p class="footer-desc">The Development Division of The Morfity. Engineering SaaS products, web applications, APIs, and cloud systems for startups and enterprises.</p>
+      <span class="footer-badge">Beirut · Dubai · Remote</span>
+    </div>
+    <div class="footer-col">
+      <h4>Department</h4>
+      <a href="about.html">About Us</a>
+      <a href="tech-stack.html">Tech Stack</a>
+      <a href="case-studies.html">Case Studies</a>
+    </div>
+    <div class="footer-col">
+      <h4>Work</h4>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Start a Project</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 The Morfity Development Division. All rights reserved.</span>
+    <span>A division of The Morfity.</span>
+  </div>
+</footer>
+
+<script>
+function switchTab(tab) {
+  document.querySelectorAll('.form-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+  document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  document.getElementById('tab-' + tab).setAttribute('aria-selected','true');
+  document.getElementById('panel-' + tab).classList.add('active');
+}
+
+function handleForm(formEl, successEl, errorEl, fields) {
+  formEl.addEventListener('submit', function(e) {
+    e.preventDefault();
+    errorEl.style.display = 'none';
+    for (const [id, msg, test] of fields) {
+      const val = document.getElementById(id).value.trim();
+      if (test && !test(val)) { showErr(errorEl, msg); return; }
+      if (!test && !val) { showErr(errorEl, msg); return; }
+    }
+    const btn = formEl.querySelector('button[type=submit]');
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+    setTimeout(() => { formEl.style.display = 'none'; successEl.classList.add('visible'); }, 800);
+  });
+}
+function showErr(el, msg) { el.textContent = msg; el.style.display = 'block'; }
+
+handleForm(
+  document.getElementById('inquiryForm'),
+  document.getElementById('inquirySuccess'),
+  document.getElementById('inquiry-error'),
+  [
+    ['f-name', 'Please enter your name.', v => v.length > 0],
+    ['f-email', 'Please enter a valid email.', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)],
+    ['f-type', 'Please select a project type.', v => v.length > 0],
+    ['f-desc', 'Please describe your project (min 30 chars).', v => v.length >= 30]
+  ]
+);
+
+handleForm(
+  document.getElementById('estimateForm'),
+  document.getElementById('estimateSuccess'),
+  document.getElementById('estimate-error'),
+  [
+    ['e-name', 'Please enter your name.', v => v.length > 0],
+    ['e-email', 'Please enter a valid email.', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)],
+    ['e-type', 'Please select a project type.', v => v.length > 0],
+    ['e-features', 'Please describe the core features (min 30 chars).', v => v.length >= 30],
+    ['e-budget', 'Please select a budget range.', v => v.length > 0]
+  ]
+);
+</script>
+</body>
+</html>

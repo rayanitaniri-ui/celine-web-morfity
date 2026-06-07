@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies — The Morfity Development</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<style>
+/* ── CASE STUDY LAYOUT ─── */
+.cs-block{padding:96px 0;border-bottom:1px solid var(--border)}
+.cs-block:last-of-type{border-bottom:none}
+.cs-header{margin-bottom:56px}
+.cs-header-row{display:flex;align-items:flex-start;justify-content:space-between;gap:40px;margin-bottom:16px;flex-wrap:wrap}
+.cs-title{font-size:clamp(32px,4.5vw,56px);font-weight:900;letter-spacing:-.03em;line-height:1.08}
+.cs-meta{display:flex;flex-direction:column;gap:8px;text-align:right;flex-shrink:0}
+.cs-meta-item{font-size:13px;color:var(--muted)}
+.cs-meta-item strong{color:#111;display:block;font-size:14px}
+
+.cs-img{border-radius:20px;overflow:hidden;height:400px;background:var(--surf);margin-bottom:56px}
+.cs-img img{width:100%;height:100%;object-fit:cover}
+
+.cs-body{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.cs-col h3{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.cs-col p{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:14px}
+.cs-col p:last-child{margin-bottom:0}
+
+.cs-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:16px;overflow:hidden;margin-top:56px}
+.cs-metric{background:#fff;padding:28px 24px;text-align:center}
+.cs-metric-n{font-size:clamp(32px,4vw,44px);font-weight:900;letter-spacing:-.03em;color:var(--teal-dark);display:block;margin-bottom:6px}
+.cs-metric-l{font-size:13px;color:var(--muted)}
+
+.cs-arch{margin-top:48px;background:var(--surf);border-radius:16px;padding:32px}
+.cs-arch h3{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:20px}
+.cs-arch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cs-arch-layer{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px}
+.cs-arch-layer-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.cs-arch-layer h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.cs-arch-layer p{font-size:13px;color:var(--muted);line-height:1.5}
+.cs-tech-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}
+.cs-tech{font-size:12px;font-weight:700;background:#111;color:#fff;padding:5px 12px;border-radius:999px}
+
+.cs-alt{background:var(--surf)}
+
+@media(max-width:960px){.cs-body{grid-template-columns:1fr}.cs-metrics{grid-template-columns:1fr 1fr}.cs-arch-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.cs-header-row{flex-direction:column}.cs-meta{text-align:left}.cs-img{height:260px}.cs-metrics{grid-template-columns:1fr 1fr}.cs-arch-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-left">
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="portfolio.html" class="nav-link">Portfolio</a>
+  </div>
+  <a href="index.html" class="nav-center">
+    <img src="mq2msxnm-image.png" alt="The Morfity Development" class="nav-logo">
+  </a>
+  <div class="nav-right">
+    <a href="case-studies.html" class="nav-link active">Case Studies</a>
+    <a href="tech-stack.html" class="nav-link">Tech Stack</a>
+    <a href="contact.html" class="pill pill-teal pill-sm">Build Your Product</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">Case Studies</div>
+    <h1>Engineering Decisions<br>That Shipped</h1>
+    <p class="hero-sub">Three software products built by the Development Division — from the technical problem we were handed to the architecture we designed and the results we shipped.</p>
+  </div>
+</section>
+
+<!-- CASE STUDY 1: Travel Is Exciting -->
+<section class="cs-block">
+  <div class="container">
+    <div class="cs-header">
+      <div class="eyebrow">Case Study 01 · Travel &amp; SaaS</div>
+      <div class="cs-header-row">
+        <h2 class="cs-title">Travel Is Exciting — Full-Stack Booking Platform</h2>
+        <div class="cs-meta">
+          <div class="cs-meta-item"><strong>Industry</strong>Travel &amp; Hospitality</div>
+          <div class="cs-meta-item"><strong>Timeline</strong>14 weeks</div>
+          <div class="cs-meta-item"><strong>Team</strong>4 engineers + PM</div>
+        </div>
+      </div>
+    </div>
+    <div class="cs-img">
+      <img src="site-images/preview/iouhj-01.jpg" alt="Travel Is Exciting platform">
+    </div>
+    <div class="cs-body">
+      <div>
+        <div class="cs-col">
+          <h3>The Challenge</h3>
+          <p>Travel Is Exciting was operating with a patchwork of spreadsheets, a legacy PHP site, and manual booking processes. The team was losing 30% of potential bookings to friction at checkout, and their inventory was managed by phone calls to hotel partners.</p>
+          <p>They needed a modern platform that could handle real-time inventory from multiple suppliers, process payments in three currencies, and give the operations team live visibility into bookings — all without rebuilding from scratch every 18 months.</p>
+        </div>
+        <div class="cs-col" style="margin-top:32px">
+          <h3>Our Solution</h3>
+          <p>We designed a multi-tenant booking platform with a public-facing Next.js frontend, a Node.js API layer, and a PostgreSQL database with row-level security for tenant isolation. Real-time inventory is handled via a queue-based architecture using Redis — reservation locks expire after 12 minutes, releasing inventory back to the pool automatically.</p>
+          <p>The admin CMS gives the operations team full control over packages, pricing, and availability without engineering involvement. Stripe handles multi-currency checkout with automatic tax calculation for GCC markets.</p>
+        </div>
+      </div>
+      <div>
+        <div class="cs-col">
+          <h3>Development Process</h3>
+          <p><strong>Weeks 1–2:</strong> Discovery sessions with the operations team. Mapped every booking workflow. Identified integration points with existing supplier APIs and built a data model that could handle 15+ room types per property.</p>
+          <p><strong>Weeks 3–10:</strong> Four two-week sprints. Sprint 1: core booking flow and payment integration. Sprint 2: admin CMS and inventory management. Sprint 3: supplier API integrations and real-time availability. Sprint 4: reporting dashboard and email automation.</p>
+          <p><strong>Weeks 11–14:</strong> User acceptance testing with the ops team, performance testing under simulated peak load (2,000 concurrent users), SEO audit, and staged rollout alongside the legacy system.</p>
+        </div>
+        <div class="cs-col" style="margin-top:32px">
+          <h3>Architecture Overview</h3>
+          <p>Next.js frontend deployed on Vercel with ISR for destination pages. Node.js API on AWS ECS with auto-scaling. PostgreSQL on AWS RDS with read replicas for reporting queries. Redis for session storage and inventory locks. S3 and CloudFront for media delivery. GitHub Actions for CI/CD with blue-green deployments.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cs-metrics">
+      <div class="cs-metric"><span class="cs-metric-n">3×</span><span class="cs-metric-l">Booking conversion increase</span></div>
+      <div class="cs-metric"><span class="cs-metric-n">98.9%</span><span class="cs-metric-l">Uptime in first 6 months</span></div>
+      <div class="cs-metric"><span class="cs-metric-n">12 min</span><span class="cs-metric-l">Inventory lock timeout</span></div>
+      <div class="cs-metric"><span class="cs-metric-n">0</span><span class="cs-metric-l">Double-bookings since launch</span></div>
+    </div>
+    <div class="cs-arch">
+      <h3>Technology Stack</h3>
+      <div class="cs-arch-grid">
+        <div class="cs-arch-layer">
+          <div class="cs-arch-layer-label">Frontend</div>
+          <h4>Next.js 14 + React</h4>
+          <p>App Router with ISR. Tailwind CSS. SWR for client-side data fetching.</p>
+        </div>
+        <div class="cs-arch-layer">
+          <div class="cs-arch-layer-label">Backend</div>
+          <h4>Node.js + Express</h4>
+          <p>REST API. JWT authentication. BullMQ job queues. Redis pub/sub.</p>
+        </div>
+        <div class="cs-arch-layer">
+          <div class="cs-arch-layer-label">Infrastructure</div>
+          <h4>AWS ECS + RDS</h4>
+          <p>Auto-scaling ECS. RDS PostgreSQL. CloudFront CDN. S3 media storage.</p>
+        </div>
+      </div>
+      <div class="cs-tech-row">
+        <span class="cs-tech">Next.js</span><span class="cs-tech">Node.js</span><span class="cs-tech">PostgreSQL</span><span class="cs-tech">Redis</span><span class="cs-tech">AWS ECS</span><span class="cs-tech">Stripe</span><span class="cs-tech">CloudFront</span><span class="cs-tech">GitHub Actions</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY 2: Merchant Analytics -->
+<section class="cs-block cs-alt">
+  <div class="container">
+    <div class="cs-header">
+      <div class="eyebrow">Case Study 02 · E-commerce &amp; Analytics SaaS</div>
+      <div class="cs-header-row">
+        <h2 class="cs-title">Merchant Analytics Suite — Real-Time E-commerce Intelligence</h2>
+        <div class="cs-meta">
+          <div class="cs-meta-item"><strong>Industry</strong>E-commerce</div>
+          <div class="cs-meta-item"><strong>Timeline</strong>18 weeks</div>
+          <div class="cs-meta-item"><strong>Team</strong>5 engineers + PM</div>
+        </div>
+      </div>
+    </div>
+    <div class="cs-img">
+      <img src="site-images/preview/iouhj-02.jpg" alt="Merchant Analytics Suite dashboard">
+    </div>
+    <div class="cs-body">
+      <div>
+        <div class="cs-col">
+          <h3>The Challenge</h3>
+          <p>A group of multi-store Shopify merchants were flying blind. Shopify's built-in analytics showed revenue but couldn't answer the question that actually matters for growth: which customer segments are worth acquiring, and which promotions are generating repeat purchasers vs. one-time buyers?</p>
+          <p>The client needed a SaaS platform that could pull data from multiple Shopify stores, normalise it, and surface cohort-level insights that weren't available anywhere else. And it needed to be fast — founders don't want to wait 20 seconds for a dashboard to load.</p>
+        </div>
+        <div class="cs-col" style="margin-top:32px">
+          <h3>Our Solution</h3>
+          <p>We built a multi-tenant SaaS with a React frontend and a Node.js API backed by PostgreSQL for normalised merchant data and a TimescaleDB extension for time-series analytics queries. Shopify store connections are OAuth-based — merchants connect a store in under 60 seconds, and historical data syncs in the background.</p>
+          <p>The analytics engine runs cohort definitions on pre-aggregated materialized views, keeping query times under 300ms for 90% of dashboard loads. Stripe billing handles subscription management with usage-based seat expansion.</p>
+        </div>
+      </div>
+      <div>
+        <div class="cs-col">
+          <h3>Development Process</h3>
+          <p><strong>Weeks 1–3:</strong> Analytics requirements deep-dive with the merchant team. Built a data model that could represent 10+ years of Shopify order history per store. Designed the cohort calculation engine before writing a line of UI code.</p>
+          <p><strong>Weeks 4–14:</strong> Four 2-week sprints. Sprint 1: Shopify OAuth integration and data sync pipeline. Sprint 2: Core analytics queries and materialized views. Sprint 3: Dashboard frontend with chart library. Sprint 4: Billing integration and multi-store management.</p>
+          <p><strong>Weeks 15–18:</strong> Beta with 5 pilot merchants. Identified three missing cohort definitions based on real usage. Performance tuning under real data volumes (2M+ orders). Public launch with onboarding flow.</p>
+        </div>
+        <div class="cs-col" style="margin-top:32px">
+          <h3>Architecture Overview</h3>
+          <p>React SPA hosted on CloudFront. Node.js API on AWS ECS. PostgreSQL + TimescaleDB on RDS for analytics. Redis for query result caching. BullMQ for async Shopify data sync jobs. Stripe for subscription billing with webhook processing.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cs-metrics">
+      <div class="cs-metric"><span class="cs-metric-n">&lt;300ms</span><span class="cs-metric-l">P90 dashboard load time</span></div>
+      <div class="cs-metric"><span class="cs-metric-n">2M+</span><span class="cs-metric-l">Orders processed at launch</span></div>
+      <div class="cs-metric"><span class="cs-metric-n">47</span><span class="cs-metric-l">Paying merchants at month 3</span></div>
+      <div class="cs-metric"><span class="cs-metric-n">94%</span><span class="cs-metric-l">Month-3 retention</span></div>
+    </div>
+    <div class="cs-arch">
+      <h3>Technology Stack</h3>
+      <div class="cs-arch-grid">
+        <div class="cs-arch-layer">
+          <div class="cs-arch-layer-label">Frontend</div>
+          <h4>React + Recharts</h4>
+          <p>SPA with React Query. Recharts for analytics visualisation. Tailwind CSS.</p>
+        </div>
+        <div class="cs-arch-layer">
+          <div class="cs-arch-layer-label">Backend</div>
+          <h4>Node.js + PostgreSQL</h4>
+          <p>TimescaleDB for time-series. BullMQ for sync jobs. Redis caching layer.</p>
+        </div>
+        <div class="cs-arch-layer">
+          <div class="cs-arch-layer-label">Integrations</div>
+          <h4>Shopify + Stripe</h4>
+          <p>OAuth store connection. Webhooks for real-time order events. Stripe billing.</p>
+        </div>
+      </div>
+      <div class="cs-tech-row">
+        <span class="cs-tech">React</span><span class="cs-tech">Node.js</span><span class="cs-tech">PostgreSQL</span><span class="cs-tech">TimescaleDB</span><span class="cs-tech">Redis</span><span class="cs-tech">AWS ECS</span><span class="cs-tech">Stripe</span><span class="cs-tech">Shopify API</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY 3: AI Studio Platform -->
+<section class="cs-block">
+  <div class="container">
+    <div class="cs-header">
+      <div class="eyebrow">Case Study 03 · AI &amp; Automation</div>
+      <div class="cs-header-row">
+        <h2 class="cs-title">AI Studio — No-Code AI Workflow Automation Platform</h2>
+        <div class="cs-meta">
+          <div class="cs-meta-item"><strong>Industry</strong>AI / SaaS</div>
+          <div class="cs-meta-item"><strong>Timeline</strong>20 weeks</div>
+          <div class="cs-meta-item"><strong>Team</strong>6 engineers + PM</div>
+        </div>
+      </div>
+    </div>
+    <div class="cs-img">
+      <img src="site-images/preview/iouhj-03.jpg" alt="AI Studio Platform interface">
+    </div>
+    <div class="cs-body">
+      <div>
+        <div class="cs-col">
+          <h3>The Challenge</h3>
+          <p>The client wanted to compete in the AI automation space — but their target customers were non-technical teams inside regional enterprises who couldn't write prompts or configure APIs. Every existing tool required too much setup to be adopted by an operations manager or marketing coordinator.</p>
+          <p>The challenge: build an AI workflow builder with a drag-and-drop interface simple enough for non-engineers, but powerful enough to handle complex multi-step automations with real business logic, conditional branching, and integration with existing enterprise tools.</p>
+        </div>
+        <div class="cs-col" style="margin-top:32px">
+          <h3>Our Solution</h3>
+          <p>We built a node-based workflow editor on top of React Flow, backed by a Python execution engine that processes workflows asynchronously. Each workflow is serialised as a DAG (Directed Acyclic Graph) and stored in PostgreSQL. Execution runs on isolated Docker containers per workflow run to prevent cross-tenant contamination.</p>
+          <p>LLM calls route through our abstraction layer supporting OpenAI, Anthropic, and Gemini — so customers aren't locked to one provider. Enterprise integrations (Salesforce, HubSpot, Slack, WhatsApp Business) are handled via a connector library using OAuth2.</p>
+        </div>
+      </div>
+      <div>
+        <div class="cs-col">
+          <h3>Development Process</h3>
+          <p><strong>Weeks 1–3:</strong> Competitor analysis and user research with 8 target customers in the UAE and Lebanon. Defined the minimum node library: 12 node types covering AI generation, data transformation, API calls, conditionals, and loop handling.</p>
+          <p><strong>Weeks 4–16:</strong> Five 2-week sprints. Sprint 1: Workflow editor canvas and node system. Sprint 2: Python execution engine and async job processing. Sprint 3: LLM abstraction layer and first integrations. Sprint 4: Execution logs, debugging UI, and error handling. Sprint 5: Enterprise SSO, team management, and usage limits.</p>
+          <p><strong>Weeks 17–20:</strong> Security audit (execution isolation, prompt injection testing). Load testing execution engine at 500 concurrent workflow runs. Soft launch with 12 enterprise pilot customers.</p>
+        </div>
+        <div class="cs-col" style="margin-top:32px">
+          <h3>Architecture Overview</h3>
+          <p>Next.js frontend with React Flow canvas. Python FastAPI execution engine on AWS ECS with Docker isolation per workflow run. PostgreSQL for workflow storage. Redis for execution state and job queues. Celery for async task processing. CloudFront for CDN. Terraform for infrastructure as code.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cs-metrics">
+      <div class="cs-metric"><span class="cs-metric-n">12</span><span class="cs-metric-l">Enterprise pilots at launch</span></div>
+      <div class="cs-metric"><span class="cs-metric-n">4 min</span><span class="cs-metric-l">Avg. time to first workflow</span></div>
+      <div class="cs-metric"><span class="cs-metric-n">500</span><span class="cs-metric-l">Concurrent workflow capacity</span></div>
+      <div class="cs-metric"><span class="cs-metric-n">3</span><span class="cs-metric-l">LLM providers supported</span></div>
+    </div>
+    <div class="cs-arch">
+      <h3>Technology Stack</h3>
+      <div class="cs-arch-grid">
+        <div class="cs-arch-layer">
+          <div class="cs-arch-layer-label">Frontend</div>
+          <h4>Next.js + React Flow</h4>
+          <p>Node-based canvas editor. Real-time execution status via WebSockets.</p>
+        </div>
+        <div class="cs-arch-layer">
+          <div class="cs-arch-layer-label">Execution Engine</div>
+          <h4>Python + Docker</h4>
+          <p>FastAPI execution layer. Celery + Redis for async jobs. Isolated containers per run.</p>
+        </div>
+        <div class="cs-arch-layer">
+          <div class="cs-arch-layer-label">AI Layer</div>
+          <h4>Multi-LLM Router</h4>
+          <p>OpenAI, Anthropic, Gemini. Prompt injection protection. Cost tracking per tenant.</p>
+        </div>
+      </div>
+      <div class="cs-tech-row">
+        <span class="cs-tech">Next.js</span><span class="cs-tech">Python</span><span class="cs-tech">FastAPI</span><span class="cs-tech">Docker</span><span class="cs-tech">PostgreSQL</span><span class="cs-tech">Redis</span><span class="cs-tech">Celery</span><span class="cs-tech">OpenAI</span><span class="cs-tech">Terraform</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="eyebrow">Your project, next</div>
+  <h2>Ready to Become a Case Study?</h2>
+  <p>Tell us what you're building. We'll scope it, design the architecture, and ship it.</p>
+  <div class="cta-btns">
+    <a href="contact.html" class="pill pill-fill" style="background:#fff;color:#111;border-color:#fff">Start Your Project</a>
+    <a href="portfolio.html" class="pill pill-white">View Portfolio →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="mq2msxnm-image.png" alt="The Morfity" class="footer-logo">
+      <p class="footer-desc">The Development Division of The Morfity. Engineering SaaS products, web applications, APIs, and cloud systems for startups and enterprises.</p>
+      <span class="footer-badge">Beirut · Dubai · Remote</span>
+    </div>
+    <div class="footer-col">
+      <h4>Department</h4>
+      <a href="about.html">About Us</a>
+      <a href="tech-stack.html">Tech Stack</a>
+      <a href="case-studies.html">Case Studies</a>
+    </div>
+    <div class="footer-col">
+      <h4>Work</h4>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Start a Project</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 The Morfity Development Division. All rights reserved.</span>
+    <span>A division of The Morfity.</span>
+  </div>
+</footer>
+
+</body>
+</html>

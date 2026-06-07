@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About the Development Department — The Morfity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<style>
+/* ── WHAT WE DO ─── */
+.what-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.what-card{border:1px solid var(--border);border-radius:16px;padding:32px}
+.what-card-ico{font-size:28px;margin-bottom:16px}
+.what-card h3{font-size:18px;font-weight:800;margin-bottom:10px;letter-spacing:-.01em}
+.what-card p{font-size:14px;color:var(--muted);line-height:1.65}
+.what-card.featured{background:var(--teal-card);color:#fff;border-color:transparent}
+.what-card.featured h3{color:#fff}
+.what-card.featured p{color:rgba(255,255,255,.5)}
+
+/* ── LEAD INTRO ─── */
+.lead-grid{display:grid;grid-template-columns:320px 1fr;gap:64px;align-items:start}
+.lead-photo{background:var(--surf-alt);border-radius:20px;aspect-ratio:3/4;overflow:hidden;max-height:380px}
+.lead-photo img{width:100%;height:100%;object-fit:cover}
+.lead-photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:64px;color:rgba(0,0,0,.08)}
+.lead-role{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+.lead-name{font-size:clamp(28px,3.5vw,40px);font-weight:900;letter-spacing:-.02em;margin-bottom:20px}
+.lead-bio{font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:24px}
+.lead-qualities{display:flex;flex-direction:column;gap:10px}
+.lead-q{display:flex;align-items:flex-start;gap:12px;font-size:14px}
+.lead-q-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:7px;flex-shrink:0}
+
+/* ── PHILOSOPHY ─── */
+.philosophy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.phi-card{padding:36px 32px;border-radius:18px}
+.phi-card:nth-child(1){background:var(--teal-card);color:#fff}
+.phi-card:nth-child(2){background:var(--surf)}
+.phi-card:nth-child(3){background:#111;color:#fff}
+.phi-num{font-size:11px;font-weight:700;letter-spacing:.14em;opacity:.4;margin-bottom:20px;text-transform:uppercase}
+.phi-card h3{font-size:22px;font-weight:800;letter-spacing:-.01em;margin-bottom:12px}
+.phi-card:nth-child(1) h3,.phi-card:nth-child(3) h3{color:#fff}
+.phi-card p{font-size:14px;line-height:1.65}
+.phi-card:nth-child(1) p{color:rgba(255,255,255,.5)}
+.phi-card:nth-child(3) p{color:rgba(255,255,255,.45)}
+.phi-card:nth-child(2) p{color:var(--muted)}
+
+/* ── TEAM ─── */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.team-card{background:var(--surf);border-radius:14px;padding:24px;text-align:center}
+.team-avatar{width:56px;height:56px;border-radius:50%;background:var(--teal-card);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:20px;color:rgba(255,255,255,.6)}
+.team-card h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.team-card p{font-size:12px;color:var(--muted)}
+
+/* ── PROCESS ─── */
+.process-steps{display:flex;flex-direction:column;gap:0}
+.process-step{display:grid;grid-template-columns:64px 1fr;gap:32px;padding:40px 0;border-bottom:1px solid var(--border);align-items:start}
+.process-step:last-child{border-bottom:none}
+.process-num{font-size:40px;font-weight:900;color:var(--teal);opacity:.35;letter-spacing:-.02em;line-height:1}
+.process-step h3{font-size:20px;font-weight:800;letter-spacing:-.01em;margin-bottom:8px}
+.process-step p{font-size:14px;color:var(--muted);line-height:1.65}
+.process-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.process-tag{font-size:12px;font-weight:600;background:var(--surf-alt);padding:4px 10px;border-radius:999px;color:var(--teal)}
+
+/* ── EXPERTISE ─── */
+.expertise-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.exp-col h3{font-size:18px;font-weight:800;margin-bottom:20px;letter-spacing:-.01em}
+.exp-items{display:flex;flex-direction:column;gap:12px}
+.exp-item{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--surf);border-radius:10px}
+.exp-item-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0}
+.exp-item span{font-size:14px;font-weight:500}
+
+@media(max-width:960px){.what-grid{grid-template-columns:1fr 1fr}.lead-grid{grid-template-columns:1fr;gap:40px}.lead-photo{aspect-ratio:16/9;max-height:260px}.philosophy-grid{grid-template-columns:1fr}.team-grid{grid-template-columns:1fr 1fr}.expertise-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.what-grid{grid-template-columns:1fr}.team-grid{grid-template-columns:1fr 1fr}.process-step{grid-template-columns:48px 1fr;gap:20px}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-left">
+    <a href="about.html" class="nav-link active">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="portfolio.html" class="nav-link">Portfolio</a>
+  </div>
+  <a href="index.html" class="nav-center">
+    <img src="mq2msxnm-image.png" alt="The Morfity Development" class="nav-logo">
+  </a>
+  <div class="nav-right">
+    <a href="case-studies.html" class="nav-link">Case Studies</a>
+    <a href="tech-stack.html" class="nav-link">Tech Stack</a>
+    <a href="contact.html" class="pill pill-teal pill-sm">Build Your Product</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">About the Department</div>
+    <h1>Engineering Software<br>at Scale</h1>
+    <p class="hero-sub">The Morfity Development Division is a dedicated software engineering team building the next generation of SaaS products, web platforms, and cloud systems — from Beirut to the Gulf.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a href="services.html" class="pill pill-fill">Our Services</a>
+      <a href="contact.html" class="pill">Start a Project →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">What We Build</div>
+      <h2>A Software Engineering Division,<br>Not a Marketing Agency</h2>
+      <p>We build products for companies that need real engineering — not landing pages or WordPress themes.</p>
+    </div>
+    <div class="what-grid">
+      <div class="what-card featured">
+        <div class="what-card-ico">⚙️</div>
+        <h3>SaaS Platforms</h3>
+        <p>Multi-tenant applications with authentication, subscription billing, admin dashboards, and enterprise-grade access control — built to onboard thousands of users.</p>
+      </div>
+      <div class="what-card">
+        <div class="what-card-ico">🌐</div>
+        <h3>Custom Web Applications</h3>
+        <p>Complex business logic translated into fast, accessible web apps. From internal tools to customer-facing platforms with real data behind them.</p>
+      </div>
+      <div class="what-card">
+        <div class="what-card-ico">🔗</div>
+        <h3>API Systems &amp; Integrations</h3>
+        <p>RESTful and GraphQL APIs designed for performance and developer adoption. We also integrate third-party systems — payment gateways, CRMs, ERPs, and data providers.</p>
+      </div>
+      <div class="what-card">
+        <div class="what-card-ico">🚀</div>
+        <h3>MVP Development</h3>
+        <p>Idea to live product in 6–10 weeks. We scope ruthlessly, build essentials, and ship something real that users can validate — not a prototype in Figma.</p>
+      </div>
+      <div class="what-card">
+        <div class="what-card-ico">☁️</div>
+        <h3>Cloud Architecture</h3>
+        <p>AWS infrastructure designed for scale: containerised deployments, managed databases, autoscaling groups, CDN layers, and zero-downtime deployments.</p>
+      </div>
+      <div class="what-card">
+        <div class="what-card-ico">🔄</div>
+        <h3>System Modernisation</h3>
+        <p>Legacy systems rebuilt with modern architecture. We migrate monoliths to microservices, PHP codebases to Node.js, and on-premise servers to cloud.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPARTMENT LEAD -->
+<section class="section" style="background:var(--surf);padding-top:0">
+  <div class="container" style="padding-top:96px">
+    <div class="section-head">
+      <div class="eyebrow">Department Leadership</div>
+      <h2>The Engineering Lead</h2>
+    </div>
+    <div class="lead-grid">
+      <div class="lead-photo">
+        <div class="lead-photo-placeholder">👨‍💻</div>
+      </div>
+      <div>
+        <div class="lead-role">Chief of Development · The Morfity</div>
+        <div class="lead-name">Head of Engineering</div>
+        <p class="lead-bio">Leading The Morfity's Development Division since its founding, our engineering lead brings deep expertise in full-stack architecture, cloud infrastructure, and building software products that scale. With a background spanning SaaS startups to enterprise systems, the approach is direct: fewer abstractions, faster delivery, zero technical debt tolerance.</p>
+        <div class="lead-qualities">
+          <div class="lead-q"><span class="lead-q-dot"></span><span>10+ years full-stack engineering experience across MENA and international markets</span></div>
+          <div class="lead-q"><span class="lead-q-dot"></span><span>Specialised in SaaS architecture, API design, and cloud-native deployment patterns</span></div>
+          <div class="lead-q"><span class="lead-q-dot"></span><span>Led 99+ product deliveries across 8 industry verticals</span></div>
+          <div class="lead-q"><span class="lead-q-dot"></span><span>Advocates for clean code, documentation-first APIs, and test coverage as a product feature</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Engineering Philosophy</div>
+      <h2>How We Think About Software</h2>
+    </div>
+    <div class="philosophy-grid">
+      <div class="phi-card">
+        <div class="phi-num">01 · Architecture</div>
+        <h3>Ship Small, Refactor Never</h3>
+        <p>We design for today's load and tomorrow's scale. Every architectural decision is made with the assumption that this product will succeed — so the foundation is production-grade from sprint one.</p>
+      </div>
+      <div class="phi-card">
+        <div class="phi-num">02 · Code Quality</div>
+        <h3>Code That a Stranger Can Read</h3>
+        <p>We write code that the next engineer — or your future self — can understand without a 2-hour onboarding call. Naming matters, documentation matters, and tests are not optional.</p>
+      </div>
+      <div class="phi-card">
+        <div class="phi-num">03 · Delivery</div>
+        <h3>Deployed, Not Just Done</h3>
+        <p>A feature isn't finished when the PR is merged. It's finished when it's live, monitored, logged, and the client has accepted it in their environment. We own delivery end-to-end.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM STRUCTURE -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Team Structure</div>
+      <h2>Who You Work With</h2>
+      <p>Every project is staffed with senior engineers. No juniors in client-facing roles. No outsourcing.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">🏗</div>
+        <h4>Solutions Architect</h4>
+        <p>System design &amp; technical scoping</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">⚛</div>
+        <h4>Frontend Engineers</h4>
+        <p>React · Next.js · UI systems</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">⚙️</div>
+        <h4>Backend Engineers</h4>
+        <p>Node.js · APIs · Databases</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">☁️</div>
+        <h4>DevOps / Cloud</h4>
+        <p>AWS · Docker · CI/CD</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">🧪</div>
+        <h4>QA Engineers</h4>
+        <p>Testing · Automation · UAT</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">📋</div>
+        <h4>Project Lead</h4>
+        <p>Delivery management &amp; client communication</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">🔒</div>
+        <h4>Security Review</h4>
+        <p>OWASP audits &amp; penetration testing</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">📖</div>
+        <h4>Tech Writing</h4>
+        <p>API docs &amp; developer guides</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEVELOPMENT PROCESS -->
+<section class="section" style="background:var(--surf)">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">How We Work</div>
+      <h2>The Development Process</h2>
+      <p>Six phases, no surprises. Every project follows the same rigorous process — adapted to scope, never skipped.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <div>
+          <h3>Discovery &amp; Technical Scoping</h3>
+          <p>We map your requirements to a concrete technical specification. Feature list, data model, API surface, third-party integrations, and infrastructure requirements — documented before a single line of code is written.</p>
+          <div class="process-tags"><span class="process-tag">Requirements</span><span class="process-tag">Tech Spec</span><span class="process-tag">Data Modelling</span><span class="process-tag">Effort Estimation</span></div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <div>
+          <h3>Architecture Design</h3>
+          <p>System architecture documented: database schema, API contract, deployment topology, authentication model, and integration patterns. Reviewed and signed off before build begins.</p>
+          <div class="process-tags"><span class="process-tag">System Design</span><span class="process-tag">API Contract</span><span class="process-tag">DB Schema</span><span class="process-tag">Security Review</span></div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <div>
+          <h3>Sprint-Based Development</h3>
+          <p>Two-week sprints. Each sprint has a defined scope, daily standups (async-friendly), and a working demo at the end. You always know what's being built and when it's done.</p>
+          <div class="process-tags"><span class="process-tag">2-Week Sprints</span><span class="process-tag">Daily Standups</span><span class="process-tag">Sprint Demos</span><span class="process-tag">Backlog Grooming</span></div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <div>
+          <h3>Code Review &amp; QA</h3>
+          <p>Every feature branch goes through peer review before merging. Automated testing covers critical paths. QA engineers run manual UAT on staging before any release to production.</p>
+          <div class="process-tags"><span class="process-tag">Peer Review</span><span class="process-tag">Automated Tests</span><span class="process-tag">Manual UAT</span><span class="process-tag">Staging Environment</span></div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">05</div>
+        <div>
+          <h3>Deployment &amp; Monitoring</h3>
+          <p>Zero-downtime deployments to AWS. Infrastructure as code. Rollback procedures tested. Error tracking, uptime monitoring, and alerting configured before go-live.</p>
+          <div class="process-tags"><span class="process-tag">CI/CD Pipeline</span><span class="process-tag">Infrastructure as Code</span><span class="process-tag">Error Tracking</span><span class="process-tag">Uptime Monitoring</span></div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">06</div>
+        <div>
+          <h3>Handoff &amp; Documentation</h3>
+          <p>Full API documentation, deployment runbook, codebase walkthrough, and a 30-day post-launch support window. You own your product and understand how it works.</p>
+          <div class="process-tags"><span class="process-tag">API Docs</span><span class="process-tag">Runbook</span><span class="process-tag">Codebase Handoff</span><span class="process-tag">30-Day Support</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNICAL EXPERTISE -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Technical Expertise</div>
+      <h2>Deep Specialisations</h2>
+    </div>
+    <div class="expertise-grid">
+      <div class="exp-col">
+        <h3>Application Engineering</h3>
+        <div class="exp-items">
+          <div class="exp-item"><span class="exp-item-dot"></span><span>Multi-tenant SaaS architecture</span></div>
+          <div class="exp-item"><span class="exp-item-dot"></span><span>Real-time data systems with WebSockets</span></div>
+          <div class="exp-item"><span class="exp-item-dot"></span><span>Payment integrations (Stripe, Checkout.com)</span></div>
+          <div class="exp-item"><span class="exp-item-dot"></span><span>Role-based access control (RBAC)</span></div>
+          <div class="exp-item"><span class="exp-item-dot"></span><span>Search systems with Elasticsearch / Algolia</span></div>
+          <div class="exp-item"><span class="exp-item-dot"></span><span>Email and notification infrastructure</span></div>
+        </div>
+      </div>
+      <div class="exp-col">
+        <h3>Infrastructure &amp; Operations</h3>
+        <div class="exp-items">
+          <div class="exp-item"><span class="exp-item-dot"></span><span>AWS: EC2, ECS, RDS, S3, CloudFront, Lambda</span></div>
+          <div class="exp-item"><span class="exp-item-dot"></span><span>Docker and Kubernetes orchestration</span></div>
+          <div class="exp-item"><span class="exp-item-dot"></span><span>Terraform infrastructure as code</span></div>
+          <div class="exp-item"><span class="exp-item-dot"></span><span>GitHub Actions and GitLab CI/CD pipelines</span></div>
+          <div class="exp-item"><span class="exp-item-dot"></span><span>Observability: Datadog, Sentry, PagerDuty</span></div>
+          <div class="exp-item"><span class="exp-item-dot"></span><span>Security: OWASP audits, HTTPS everywhere, secrets management</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="eyebrow">Ready to build?</div>
+  <h2>Bring Your Product Idea.<br>We'll Engineer It.</h2>
+  <p>Discovery call takes 30 minutes. Technical scoping delivered in 5 business days.</p>
+  <div class="cta-btns">
+    <a href="contact.html" class="pill pill-fill" style="background:#fff;color:#111;border-color:#fff">Start a Project</a>
+    <a href="services.html" class="pill pill-white">See Our Services →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="mq2msxnm-image.png" alt="The Morfity" class="footer-logo">
+      <p class="footer-desc">The Development Division of The Morfity. Engineering SaaS products, web applications, APIs, and cloud systems for startups and enterprises.</p>
+      <span class="footer-badge">Beirut · Dubai · Remote</span>
+    </div>
+    <div class="footer-col">
+      <h4>Department</h4>
+      <a href="about.html">About Us</a>
+      <a href="tech-stack.html">Tech Stack</a>
+      <a href="case-studies.html">Case Studies</a>
+    </div>
+    <div class="footer-col">
+      <h4>Work</h4>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Start a Project</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 The Morfity Development Division. All rights reserved.</span>
+    <span>A division of The Morfity.</span>
+  </div>
+</footer>
+
+</body>
+</html>

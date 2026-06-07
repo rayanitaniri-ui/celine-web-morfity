@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — The Morfity Development</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<style>
+/* ── FILTER TABS ─── */
+.filter-row{display:flex;gap:8px;margin-bottom:48px;flex-wrap:wrap}
+.filter-btn{padding:9px 20px;border:1px solid var(--border);border-radius:999px;font-size:13px;font-weight:600;color:#555;cursor:pointer;transition:all .14s;background:#fff}
+.filter-btn:hover,.filter-btn.active{background:#111;color:#fff;border-color:#111}
+
+/* ── PROJECT GRID ─── */
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.project-card{border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;cursor:pointer;transition:box-shadow .2s,transform .2s}
+.project-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.08);transform:translateY(-2px)}
+.project-card[data-hidden]{display:none}
+.project-img{height:240px;overflow:hidden;background:var(--surf);position:relative}
+.project-img img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.project-card:hover .project-img img{transform:scale(1.04)}
+.project-cat-badge{position:absolute;top:16px;left:16px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);color:#fff;padding:5px 12px;border-radius:999px}
+.project-body{padding:28px}
+.project-name{font-size:20px;font-weight:800;letter-spacing:-.01em;margin-bottom:8px}
+.project-desc{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:16px}
+.project-stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.project-tag{font-size:11px;font-weight:600;background:var(--surf);padding:3px 10px;border-radius:999px;color:#555}
+.project-outcome{font-size:13px;font-weight:600;color:var(--teal);border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:6px}
+.project-outcome::before{content:'→';color:var(--teal)}
+
+/* ── FEATURED ROW (large 2-col) ─── */
+.featured-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+.project-card-lg .project-img{height:320px}
+
+/* ── CATEGORY HEADINGS ─── */
+.cat-heading{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+
+@media(max-width:960px){.project-grid{grid-template-columns:1fr 1fr}.featured-row{grid-template-columns:1fr}}
+@media(max-width:640px){.project-grid{grid-template-columns:1fr}.featured-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-left">
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="portfolio.html" class="nav-link active">Portfolio</a>
+  </div>
+  <a href="index.html" class="nav-center">
+    <img src="mq2msxnm-image.png" alt="The Morfity Development" class="nav-logo">
+  </a>
+  <div class="nav-right">
+    <a href="case-studies.html" class="nav-link">Case Studies</a>
+    <a href="tech-stack.html" class="nav-link">Tech Stack</a>
+    <a href="contact.html" class="pill pill-teal pill-sm">Build Your Product</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">Portfolio</div>
+    <h1>Software Products<br>We've Shipped</h1>
+    <p class="hero-sub">A curated selection of SaaS platforms, web applications, and digital systems built by the Development Division for clients across the MENA region and beyond.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="filter-row">
+      <button class="filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
+      <button class="filter-btn" onclick="filterProjects('saas', this)">SaaS Products</button>
+      <button class="filter-btn" onclick="filterProjects('web', this)">Web Applications</button>
+      <button class="filter-btn" onclick="filterProjects('platform', this)">Platforms</button>
+    </div>
+
+    <!-- FEATURED LARGE ROW -->
+    <div class="featured-row">
+      <div class="project-card project-card-lg" data-cat="saas">
+        <div class="project-img">
+          <img src="site-images/preview/iouhj-01.jpg" alt="Travel Is Exciting">
+          <span class="project-cat-badge">SaaS Platform</span>
+        </div>
+        <div class="project-body">
+          <div class="project-name">Travel Is Exciting</div>
+          <div class="project-desc">A full-stack travel booking platform with real-time inventory management, multi-currency checkout, and a headless CMS for destination content. Built for a Beirut-based travel operator expanding into Gulf markets.</div>
+          <div class="project-stack">
+            <span class="project-tag">Next.js</span><span class="project-tag">Node.js</span><span class="project-tag">PostgreSQL</span><span class="project-tag">Redis</span><span class="project-tag">Stripe</span><span class="project-tag">AWS</span>
+          </div>
+          <div class="project-outcome">3× booking conversion increase post-launch</div>
+        </div>
+      </div>
+      <div class="project-card project-card-lg" data-cat="saas">
+        <div class="project-img">
+          <img src="site-images/preview/iouhj-02.jpg" alt="Merchant Analytics Suite">
+          <span class="project-cat-badge">Analytics SaaS</span>
+        </div>
+        <div class="project-body">
+          <div class="project-name">Merchant Analytics Suite</div>
+          <div class="project-desc">Real-time cohort analytics for multi-store Shopify merchants. Surfaces customer lifetime value, acquisition channel ROI, and churn signals that native Shopify analytics cannot provide.</div>
+          <div class="project-stack">
+            <span class="project-tag">React</span><span class="project-tag">Node.js</span><span class="project-tag">TimescaleDB</span><span class="project-tag">Redis</span><span class="project-tag">Shopify API</span><span class="project-tag">Stripe</span>
+          </div>
+          <div class="project-outcome">47 paying merchants · 94% month-3 retention</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STANDARD GRID -->
+    <div class="project-grid">
+      <div class="project-card" data-cat="platform">
+        <div class="project-img">
+          <img src="site-images/preview/iouhj-03.jpg" alt="AI Studio Platform">
+          <span class="project-cat-badge">AI Platform</span>
+        </div>
+        <div class="project-body">
+          <div class="project-name">AI Studio Platform</div>
+          <div class="project-desc">A no-code AI workflow builder for non-technical enterprise teams. Drag-and-drop node editor, multi-LLM support, and enterprise integrations (Salesforce, Slack, WhatsApp).</div>
+          <div class="project-stack">
+            <span class="project-tag">Next.js</span><span class="project-tag">Python</span><span class="project-tag">Docker</span><span class="project-tag">OpenAI</span><span class="project-tag">Celery</span>
+          </div>
+          <div class="project-outcome">12 enterprise pilots at launch</div>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="web">
+        <div class="project-img">
+          <img src="site-images/preview/iouhj-04.jpg" alt="Retail POS System">
+          <span class="project-cat-badge">Web Application</span>
+        </div>
+        <div class="project-body">
+          <div class="project-name">Unified Retail POS</div>
+          <div class="project-desc">A cloud-based point-of-sale system for multi-branch retail operations. Real-time inventory sync, staff performance dashboards, and offline-capable checkout for unreliable network environments.</div>
+          <div class="project-stack">
+            <span class="project-tag">React</span><span class="project-tag">Node.js</span><span class="project-tag">PostgreSQL</span><span class="project-tag">Service Workers</span><span class="project-tag">WebSockets</span>
+          </div>
+          <div class="project-outcome">Deployed across 22 retail branches</div>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="saas">
+        <div class="project-img" style="background:linear-gradient(135deg,var(--teal-card),var(--teal-dark));display:flex;align-items:center;justify-content:center">
+          <span style="font-size:56px">📊</span>
+          <span class="project-cat-badge">Reporting SaaS</span>
+        </div>
+        <div class="project-body">
+          <div class="project-name">Franchise Performance Hub</div>
+          <div class="project-desc">A SaaS reporting platform for franchise networks. Each franchisee sees their own dashboard; head office sees cross-franchise comparisons, anomaly detection, and automated weekly summaries via email.</div>
+          <div class="project-stack">
+            <span class="project-tag">Next.js</span><span class="project-tag">Node.js</span><span class="project-tag">PostgreSQL</span><span class="project-tag">Chart.js</span><span class="project-tag">SendGrid</span>
+          </div>
+          <div class="project-outcome">Used by 3 franchise networks, 80+ locations</div>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="platform">
+        <div class="project-img" style="background:linear-gradient(135deg,#1a1a2e,#162032);display:flex;align-items:center;justify-content:center">
+          <span style="font-size:56px">🏗</span>
+          <span class="project-cat-badge">B2B Platform</span>
+        </div>
+        <div class="project-body">
+          <div class="project-name">Contractor Marketplace</div>
+          <div class="project-desc">A two-sided marketplace connecting construction contractors with subcontractors for project-based work. Includes bid management, document signing, milestone billing, and dispute resolution workflows.</div>
+          <div class="project-stack">
+            <span class="project-tag">Next.js</span><span class="project-tag">Node.js</span><span class="project-tag">PostgreSQL</span><span class="project-tag">Stripe Connect</span><span class="project-tag">DocuSign API</span>
+          </div>
+          <div class="project-outcome">$2.4M in bids processed in first quarter</div>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="web">
+        <div class="project-img" style="background:linear-gradient(135deg,#0f1f2e,#1a3040);display:flex;align-items:center;justify-content:center">
+          <span style="font-size:56px">🏥</span>
+          <span class="project-cat-badge">Healthcare Web App</span>
+        </div>
+        <div class="project-body">
+          <div class="project-name">Clinic Operations Portal</div>
+          <div class="project-desc">An appointment management and patient record system for a multi-branch private clinic network. HIPAA-aligned data handling, SMS appointment reminders, and an insurance pre-authorisation workflow.</div>
+          <div class="project-stack">
+            <span class="project-tag">React</span><span class="project-tag">Node.js</span><span class="project-tag">PostgreSQL</span><span class="project-tag">AWS</span><span class="project-tag">Twilio</span>
+          </div>
+          <div class="project-outcome">40% reduction in appointment no-shows</div>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="platform">
+        <div class="project-img">
+          <img src="site-images/scroll/2.jpg" alt="PropTech Platform">
+          <span class="project-cat-badge">PropTech Platform</span>
+        </div>
+        <div class="project-body">
+          <div class="project-name">Property Listing Platform</div>
+          <div class="project-desc">A full-featured property listing and transaction platform for a Gulf real estate agency. Includes agent portals, lead routing, virtual tour integrations, and a mortgage calculator API.</div>
+          <div class="project-stack">
+            <span class="project-tag">Next.js</span><span class="project-tag">Node.js</span><span class="project-tag">PostgreSQL</span><span class="project-tag">Elasticsearch</span><span class="project-tag">AWS</span>
+          </div>
+          <div class="project-outcome">350+ active listings at launch</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stat-strip">
+  <div class="stat-item"><span class="stat-n">99+</span><span class="stat-l">Products Shipped</span></div>
+  <div class="stat-item"><span class="stat-n">8</span><span class="stat-l">Industry Verticals</span></div>
+  <div class="stat-item"><span class="stat-n">MENA</span><span class="stat-l">Primary Market</span></div>
+  <div class="stat-item"><span class="stat-n">5+</span><span class="stat-l">Years Shipping</span></div>
+</div>
+
+<section class="cta-band">
+  <div class="eyebrow">Your product, next</div>
+  <h2>Ready to Start Building?</h2>
+  <p>Tell us what you're building and we'll scope it — no commitment, no retainer required to start the conversation.</p>
+  <div class="cta-btns">
+    <a href="contact.html" class="pill pill-fill" style="background:#fff;color:#111;border-color:#fff">Build Your Product</a>
+    <a href="case-studies.html" class="pill pill-white">Read Case Studies →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="mq2msxnm-image.png" alt="The Morfity" class="footer-logo">
+      <p class="footer-desc">The Development Division of The Morfity. Engineering SaaS products, web applications, APIs, and cloud systems for startups and enterprises.</p>
+      <span class="footer-badge">Beirut · Dubai · Remote</span>
+    </div>
+    <div class="footer-col">
+      <h4>Department</h4>
+      <a href="about.html">About Us</a>
+      <a href="tech-stack.html">Tech Stack</a>
+      <a href="case-studies.html">Case Studies</a>
+    </div>
+    <div class="footer-col">
+      <h4>Work</h4>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Start a Project</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 The Morfity Development Division. All rights reserved.</span>
+    <span>A division of The Morfity.</span>
+  </div>
+</footer>
+
+<script>
+function filterProjects(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.project-card').forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.removeAttribute('data-hidden');
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  // Show/hide featured row
+  const featuredRow = document.querySelector('.featured-row');
+  if (cat === 'all' || cat === 'saas') {
+    featuredRow.style.display = '';
+  } else {
+    featuredRow.style.display = 'none';
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — The Morfity Development</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<style>
+/* ── SERVICES NAV ─── */
+.services-nav{display:flex;gap:8px;padding:28px 0;border-bottom:1px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.svc-nav-btn{padding:8px 20px;border:1px solid var(--border);border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap;color:#555;cursor:pointer;transition:all .14s;background:#fff}
+.svc-nav-btn:hover,.svc-nav-btn.active{background:var(--teal-dark);color:#fff;border-color:var(--teal-dark)}
+
+/* ── SERVICE BLOCK ─── */
+.svc-block{padding:80px 0;border-bottom:1px solid var(--border)}
+.svc-block:last-of-type{border-bottom:none}
+.svc-block-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.svc-block-grid.flip{direction:rtl}
+.svc-block-grid.flip>*{direction:ltr}
+.svc-ico{font-size:48px;margin-bottom:20px;line-height:1}
+.svc-num{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.svc-block h2{font-size:clamp(28px,3.5vw,42px);font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-bottom:16px}
+.svc-block>.container>.svc-block-grid .svc-block-content p{font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:28px}
+.svc-block p{font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:28px}
+
+.svc-detail{background:var(--surf);border-radius:20px;padding:36px}
+.svc-detail-section{margin-bottom:28px}
+.svc-detail-section:last-child{margin-bottom:0}
+.svc-detail-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.svc-detail-items{display:flex;flex-direction:column;gap:8px}
+.svc-detail-item{display:flex;align-items:flex-start;gap:10px;font-size:14px}
+.svc-detail-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:7px;flex-shrink:0}
+.svc-tech-tags{display:flex;flex-wrap:wrap;gap:6px}
+.svc-tech-tag{font-size:12px;font-weight:700;background:#fff;border:1px solid var(--border);padding:4px 12px;border-radius:999px;color:#333}
+
+@media(max-width:960px){.svc-block-grid{grid-template-columns:1fr;gap:40px}.svc-block-grid.flip{direction:ltr}}
+@media(max-width:640px){.services-nav{padding:20px 0}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-left">
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link active">Services</a>
+    <a href="portfolio.html" class="nav-link">Portfolio</a>
+  </div>
+  <a href="index.html" class="nav-center">
+    <img src="mq2msxnm-image.png" alt="The Morfity Development" class="nav-logo">
+  </a>
+  <div class="nav-right">
+    <a href="case-studies.html" class="nav-link">Case Studies</a>
+    <a href="tech-stack.html" class="nav-link">Tech Stack</a>
+    <a href="contact.html" class="pill pill-teal pill-sm">Build Your Product</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">Engineering Services</div>
+    <h1>Software Built for<br>the Long Run</h1>
+    <p class="hero-sub">Five core engineering capabilities that cover the full product lifecycle — from architecture design to cloud deployment and ongoing development.</p>
+    <div class="services-nav">
+      <button class="svc-nav-btn active" onclick="scrollToService('saas')">SaaS Development</button>
+      <button class="svc-nav-btn" onclick="scrollToService('webapp')">Custom Web Apps</button>
+      <button class="svc-nav-btn" onclick="scrollToService('api')">API Systems</button>
+      <button class="svc-nav-btn" onclick="scrollToService('mvp')">MVP Development</button>
+      <button class="svc-nav-btn" onclick="scrollToService('cloud')">Cloud Architecture</button>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 1: SaaS Development -->
+<section class="svc-block" id="saas">
+  <div class="container">
+    <div class="svc-block-grid">
+      <div>
+        <div class="svc-num">Service 01</div>
+        <div class="svc-ico">⚙️</div>
+        <h2>SaaS Platform Development</h2>
+        <p>We build multi-tenant SaaS applications from the ground up. From subscription billing to role-based dashboards, our SaaS products are engineered to onboard thousands of users without degradation.</p>
+        <p>Every SaaS we build ships with a full admin panel, usage analytics, onboarding flows, API access for power users, and the infrastructure to support your growth from launch to Series B.</p>
+        <a href="contact.html" class="pill pill-outline-teal">Start a SaaS Project →</a>
+      </div>
+      <div class="svc-detail">
+        <div class="svc-detail-section">
+          <div class="svc-detail-label">What's included</div>
+          <div class="svc-detail-items">
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Multi-tenant data architecture with full tenant isolation</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Authentication: SSO, OAuth2, magic links, MFA</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Subscription billing with Stripe: plans, trials, invoices</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Role-based access control (admin, member, viewer)</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>User onboarding flows and product walkthroughs</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Usage analytics and admin reporting dashboard</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Public REST API with developer documentation</span></div>
+          </div>
+        </div>
+        <div class="svc-detail-section">
+          <div class="svc-detail-label">Deliverables</div>
+          <div class="svc-detail-items">
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Production-deployed application on AWS</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Full source code with documentation</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>API reference docs (OpenAPI spec)</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Deployment runbook &amp; infrastructure diagram</span></div>
+          </div>
+        </div>
+        <div class="svc-detail-section">
+          <div class="svc-detail-label">Technology</div>
+          <div class="svc-tech-tags">
+            <span class="svc-tech-tag">Next.js</span><span class="svc-tech-tag">React</span><span class="svc-tech-tag">Node.js</span><span class="svc-tech-tag">PostgreSQL</span><span class="svc-tech-tag">Redis</span><span class="svc-tech-tag">Stripe</span><span class="svc-tech-tag">AWS</span><span class="svc-tech-tag">Docker</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 2: Web Applications -->
+<section class="svc-block" id="webapp" style="background:var(--surf)">
+  <div class="container">
+    <div class="svc-block-grid flip">
+      <div>
+        <div class="svc-num">Service 02</div>
+        <div class="svc-ico">🌐</div>
+        <h2>Custom Web Applications</h2>
+        <p>Complex business logic requires custom engineering. We build web applications that do exactly what your business needs — not what off-the-shelf software was designed for.</p>
+        <p>Internal tools, customer portals, booking systems, marketplace platforms, and workflow automation — if your business process requires a product, we build it right.</p>
+        <a href="contact.html" class="pill pill-outline-teal">Discuss Your Application →</a>
+      </div>
+      <div class="svc-detail">
+        <div class="svc-detail-section">
+          <div class="svc-detail-label">Use cases</div>
+          <div class="svc-detail-items">
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Customer portals and self-service dashboards</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Internal operations tools and CRM replacements</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Booking, scheduling, and reservation systems</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Multi-vendor marketplace platforms</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Data-heavy reporting and analytics tools</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Workflow automation and approval systems</span></div>
+          </div>
+        </div>
+        <div class="svc-detail-section">
+          <div class="svc-detail-label">Key capabilities</div>
+          <div class="svc-detail-items">
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Server-side rendering for SEO and performance</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Real-time updates with WebSocket or Server-Sent Events</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>File upload, processing, and CDN delivery</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>WCAG 2.1 AA accessibility compliance</span></div>
+          </div>
+        </div>
+        <div class="svc-detail-section">
+          <div class="svc-detail-label">Technology</div>
+          <div class="svc-tech-tags">
+            <span class="svc-tech-tag">Next.js</span><span class="svc-tech-tag">React</span><span class="svc-tech-tag">Tailwind</span><span class="svc-tech-tag">Node.js</span><span class="svc-tech-tag">PostgreSQL</span><span class="svc-tech-tag">AWS S3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 3: API Systems -->
+<section class="svc-block" id="api">
+  <div class="container">
+    <div class="svc-block-grid">
+      <div>
+        <div class="svc-num">Service 03</div>
+        <div class="svc-ico">🔗</div>
+        <h2>API Systems &amp; Integrations</h2>
+        <p>Poorly designed APIs slow down every team that depends on them. We design APIs that are fast, consistent, and a pleasure to integrate against — with documentation that actually explains what the endpoints do.</p>
+        <p>We build API-first: the interface is designed and documented before the implementation begins. No undocumented endpoints, no inconsistent naming conventions, no surprises.</p>
+        <a href="contact.html" class="pill pill-outline-teal">Design Your API →</a>
+      </div>
+      <div class="svc-detail">
+        <div class="svc-detail-section">
+          <div class="svc-detail-label">API capabilities</div>
+          <div class="svc-detail-items">
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>RESTful APIs with OpenAPI 3.0 specification</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>GraphQL schemas with subscriptions and mutations</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Webhook delivery systems with retry logic</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>API key management and OAuth2 token flows</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Rate limiting, throttling, and quota management</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>SDK generation for common languages</span></div>
+          </div>
+        </div>
+        <div class="svc-detail-section">
+          <div class="svc-detail-label">Integrations we build</div>
+          <div class="svc-detail-items">
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Payment gateways: Stripe, Checkout.com, PayTabs</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>CRM and ERP connectors: Salesforce, HubSpot, SAP</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Communication: Twilio, SendGrid, WhatsApp Business</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>AI / LLM integrations: OpenAI, Anthropic, Gemini</span></div>
+          </div>
+        </div>
+        <div class="svc-detail-section">
+          <div class="svc-detail-label">Technology</div>
+          <div class="svc-tech-tags">
+            <span class="svc-tech-tag">Node.js</span><span class="svc-tech-tag">Express</span><span class="svc-tech-tag">GraphQL</span><span class="svc-tech-tag">Redis</span><span class="svc-tech-tag">PostgreSQL</span><span class="svc-tech-tag">AWS API Gateway</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 4: MVP Development -->
+<section class="svc-block" id="mvp" style="background:var(--surf)">
+  <div class="container">
+    <div class="svc-block-grid flip">
+      <div>
+        <div class="svc-num">Service 04</div>
+        <div class="svc-ico">🚀</div>
+        <h2>MVP Development</h2>
+        <p>You have a validated idea. You need a real product in the hands of real users. We scope ruthlessly, build the essential version, and ship it — so you can learn from your actual customers, not assumptions.</p>
+        <p>Our MVPs are production-grade from day one. No prototypes that can't scale. No code that needs to be thrown away when you raise your first round.</p>
+        <a href="contact.html" class="pill pill-outline-teal">Launch Your MVP →</a>
+      </div>
+      <div class="svc-detail">
+        <div class="svc-detail-section">
+          <div class="svc-detail-label">What we deliver</div>
+          <div class="svc-detail-items">
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Scoped product with defined feature set (no scope creep)</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Production deployment on scalable AWS infrastructure</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>User authentication and basic account management</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Analytics instrumentation (Posthog or Mixpanel)</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Error tracking and uptime monitoring from day one</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Architecture that survives product-market fit</span></div>
+          </div>
+        </div>
+        <div class="svc-detail-section">
+          <div class="svc-detail-label">Timeline</div>
+          <div class="svc-detail-items">
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Weeks 1–2: Discovery, scoping, and architecture</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Weeks 3–8: Sprint-based development with weekly demos</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Weeks 9–10: QA, UAT, and production deployment</span></div>
+          </div>
+        </div>
+        <div class="svc-detail-section">
+          <div class="svc-detail-label">Best for</div>
+          <div class="svc-tech-tags">
+            <span class="svc-tech-tag">Pre-seed startups</span><span class="svc-tech-tag">Seed-stage founders</span><span class="svc-tech-tag">Enterprise side-projects</span><span class="svc-tech-tag">Market validation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 5: Cloud Architecture -->
+<section class="svc-block" id="cloud">
+  <div class="container">
+    <div class="svc-block-grid">
+      <div>
+        <div class="svc-num">Service 05</div>
+        <div class="svc-ico">☁️</div>
+        <h2>Cloud Architecture &amp; DevOps</h2>
+        <p>Poorly configured infrastructure is the invisible tax on every engineering decision. We design AWS architectures that are cost-efficient, secure, and built to scale without emergency migrations when you hit 10× your expected traffic.</p>
+        <p>We also work with existing systems — auditing, migrating, and optimising infrastructure that was set up ad-hoc and is now costing too much or performing too slowly.</p>
+        <a href="contact.html" class="pill pill-outline-teal">Review Your Infrastructure →</a>
+      </div>
+      <div class="svc-detail">
+        <div class="svc-detail-section">
+          <div class="svc-detail-label">Infrastructure services</div>
+          <div class="svc-detail-items">
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>AWS architecture design and cost optimisation</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Container orchestration with ECS or Kubernetes</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Managed database setup: RDS, Aurora, Redis</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>CDN configuration for global performance</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>CI/CD pipeline setup with GitHub Actions</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Observability: logs, metrics, traces, alerting</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>On-premise to cloud migration planning</span></div>
+          </div>
+        </div>
+        <div class="svc-detail-section">
+          <div class="svc-detail-label">Security</div>
+          <div class="svc-detail-items">
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>VPC design with private subnets for sensitive workloads</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>Secrets management with AWS Secrets Manager</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>IAM roles with least-privilege principles</span></div>
+            <div class="svc-detail-item"><span class="svc-detail-dot"></span><span>OWASP security review and penetration testing</span></div>
+          </div>
+        </div>
+        <div class="svc-detail-section">
+          <div class="svc-detail-label">Technology</div>
+          <div class="svc-tech-tags">
+            <span class="svc-tech-tag">AWS</span><span class="svc-tech-tag">Terraform</span><span class="svc-tech-tag">Docker</span><span class="svc-tech-tag">Kubernetes</span><span class="svc-tech-tag">GitHub Actions</span><span class="svc-tech-tag">Datadog</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="eyebrow">Let's scope your project</div>
+  <h2>Tell Us What You're Building.<br>We'll Tell You How.</h2>
+  <p>Free discovery call. Technical scope delivered in 5 business days. No commitment required.</p>
+  <div class="cta-btns">
+    <a href="contact.html" class="pill pill-fill" style="background:#fff;color:#111;border-color:#fff">Build Your Product</a>
+    <a href="case-studies.html" class="pill pill-white">Read Case Studies →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="mq2msxnm-image.png" alt="The Morfity" class="footer-logo">
+      <p class="footer-desc">The Development Division of The Morfity. Engineering SaaS products, web applications, APIs, and cloud systems for startups and enterprises.</p>
+      <span class="footer-badge">Beirut · Dubai · Remote</span>
+    </div>
+    <div class="footer-col">
+      <h4>Department</h4>
+      <a href="about.html">About Us</a>
+      <a href="tech-stack.html">Tech Stack</a>
+      <a href="case-studies.html">Case Studies</a>
+    </div>
+    <div class="footer-col">
+      <h4>Work</h4>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Start a Project</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 The Morfity Development Division. All rights reserved.</span>
+    <span>A division of The Morfity.</span>
+  </div>
+</footer>
+
+<script>
+function scrollToService(id){
+  const el=document.getElementById(id);
+  if(el){el.scrollIntoView({behavior:'smooth',block:'start'})}
+  document.querySelectorAll('.svc-nav-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>

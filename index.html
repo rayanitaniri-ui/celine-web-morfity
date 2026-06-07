@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Morfity Development — Software Engineering Division</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<style>
+.home-hero{padding:80px 0 96px}
+.hero-split{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:999px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:28px}
+.hero-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--teal)}
+.hero-headline{font-size:clamp(48px,6.5vw,88px);font-weight:900;letter-spacing:-.03em;line-height:1.03;margin-bottom:24px}
+.hero-sub{font-size:18px;color:var(--muted);max-width:480px;line-height:1.65;margin-bottom:36px}
+.hero-btns{display:flex;gap:12px;align-items:center;margin-bottom:56px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:40px;padding-top:32px;border-top:1px solid var(--border)}
+.hero-stat-n{font-size:36px;font-weight:900;letter-spacing:-.02em;color:var(--teal-dark);display:block}
+.hero-stat-l{font-size:13px;color:var(--muted);display:block;margin-top:2px}
+.hero-card{background:var(--teal-card);border-radius:20px;overflow:hidden}
+.hero-card-header{padding:20px 24px 16px;display:flex;justify-content:space-between;align-items:center}
+.hero-card-badge{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.hero-card-live{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:rgba(255,255,255,.55)}
+.hero-card-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+.hero-card-img{height:260px;overflow:hidden}
+.hero-card-img img{width:100%;height:100%;object-fit:cover}
+.hero-card-footer{padding:20px 24px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.08)}
+.hero-card-name{font-size:16px;font-weight:700;color:#fff;margin-bottom:3px}
+.hero-card-stack{font-size:12px;color:rgba(255,255,255,.38)}
+.hero-card-arrow{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);font-size:16px;transition:background .14s,border-color .14s}
+.hero-card-arrow:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.35)}
+
+.ticker{border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;padding:16px 0}
+.ticker-track{display:flex;align-items:center;gap:32px;width:max-content;animation:ticker-scroll 22s linear infinite;font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+@keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-sep{color:var(--teal);font-size:16px}
+
+.dept-intro{padding:96px 0}
+.dept-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.dept-intro h2{font-size:clamp(36px,4.5vw,52px);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:20px}
+.dept-intro p{font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.dept-caps{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.dept-cap{background:var(--surf);border-radius:14px;padding:24px}
+.dept-cap-n{font-size:22px;margin-bottom:8px}
+.dept-cap h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.dept-cap p{font-size:13px;color:var(--muted);line-height:1.55}
+.dept-cap.accent{background:var(--teal-card);color:#fff}
+.dept-cap.accent h4{color:#fff}
+.dept-cap.accent p{color:rgba(255,255,255,.5)}
+
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.work-card{background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:box-shadow .2s;display:block}
+.work-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.07)}
+.work-card-img{height:220px;overflow:hidden;background:var(--surf)}
+.work-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.work-card:hover .work-card-img img{transform:scale(1.03)}
+.work-card-body{padding:24px}
+.work-cat{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.work-card h3{font-size:20px;font-weight:800;letter-spacing:-.01em;margin-bottom:10px}
+.work-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
+.work-stack{display:flex;gap:6px;flex-wrap:wrap}
+.work-tag{font-size:11px;font-weight:600;background:var(--surf);padding:3px 10px;border-radius:999px;color:#555}
+
+.stack-preview{padding:80px 0;background:var(--surf)}
+.stack-preview h2{font-size:clamp(28px,3.5vw,40px);font-weight:900;letter-spacing:-.02em;margin-bottom:8px}
+.stack-preview-sub{font-size:15px;color:var(--muted);margin-bottom:40px}
+.stack-categories{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stack-cat-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.stack-names{display:flex;flex-direction:column;gap:8px}
+.stack-name{font-size:14px;font-weight:600;padding:10px 14px;background:#fff;border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;gap:10px;color:#222;transition:border-color .14s}
+.stack-name:hover{border-color:var(--teal)}
+
+@media(max-width:960px){.hero-split{grid-template-columns:1fr;gap:48px}.dept-intro-grid{grid-template-columns:1fr;gap:48px}.work-grid{grid-template-columns:1fr 1fr}.stack-categories{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.home-hero{padding:56px 0 72px}.work-grid{grid-template-columns:1fr}.dept-caps{grid-template-columns:1fr}.hero-stats{gap:24px}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-left">
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="portfolio.html" class="nav-link">Portfolio</a>
+  </div>
+  <a href="index.html" class="nav-center">
+    <img src="mq2msxnm-image.png" alt="The Morfity Development" class="nav-logo">
+  </a>
+  <div class="nav-right">
+    <a href="case-studies.html" class="nav-link">Case Studies</a>
+    <a href="tech-stack.html" class="nav-link">Tech Stack</a>
+    <a href="contact.html" class="pill pill-teal pill-sm">Build Your Product</a>
+  </div>
+</nav>
+
+<section class="home-hero">
+  <div class="container">
+    <div class="hero-split">
+      <div>
+        <div class="hero-tag"><span class="hero-tag-dot"></span>Development Division · Morfity</div>
+        <h1 class="hero-headline">We Build Software Products That Scale</h1>
+        <p class="hero-sub">SaaS platforms, web applications, APIs, and cloud systems — engineered for startups and enterprises ready to ship.</p>
+        <div class="hero-btns">
+          <a href="contact.html" class="pill pill-fill">Build Your Product</a>
+          <a href="portfolio.html" class="pill">View Our Work →</a>
+        </div>
+        <div class="hero-stats">
+          <div><span class="hero-stat-n">99+</span><span class="hero-stat-l">Products Shipped</span></div>
+          <div><span class="hero-stat-n">5+</span><span class="hero-stat-l">Years Engineering</span></div>
+          <div><span class="hero-stat-n">2</span><span class="hero-stat-l">Offices</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <span class="hero-card-badge">Latest Delivery</span>
+            <span class="hero-card-live"><span class="hero-card-dot"></span> Live</span>
+          </div>
+          <div class="hero-card-img">
+            <img src="site-images/preview/iouhj-01.jpg" alt="Travel Is Exciting — full-stack travel platform">
+          </div>
+          <div class="hero-card-footer">
+            <div>
+              <div class="hero-card-name">Travel Is Exciting</div>
+              <div class="hero-card-stack">Next.js · Node.js · AWS · PostgreSQL</div>
+            </div>
+            <a href="portfolio.html" class="hero-card-arrow">→</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>SaaS Products</span><span class="ticker-sep">·</span><span>Web Applications</span><span class="ticker-sep">·</span><span>API Systems</span><span class="ticker-sep">·</span><span>Cloud Architecture</span><span class="ticker-sep">·</span><span>MVP Development</span><span class="ticker-sep">·</span><span>Scalable Backends</span><span class="ticker-sep">·</span><span>DevOps &amp; CI/CD</span><span class="ticker-sep">·</span><span>Database Design</span><span class="ticker-sep">·</span>
+    <span>SaaS Products</span><span class="ticker-sep">·</span><span>Web Applications</span><span class="ticker-sep">·</span><span>API Systems</span><span class="ticker-sep">·</span><span>Cloud Architecture</span><span class="ticker-sep">·</span><span>MVP Development</span><span class="ticker-sep">·</span><span>Scalable Backends</span><span class="ticker-sep">·</span><span>DevOps &amp; CI/CD</span><span class="ticker-sep">·</span><span>Database Design</span><span class="ticker-sep">·</span>
+  </div>
+</div>
+
+<section class="dept-intro">
+  <div class="container">
+    <div class="dept-intro-grid">
+      <div>
+        <div class="eyebrow">The Development Department</div>
+        <h2>Engineering Software That Outlasts Hype</h2>
+        <p>The Morfity Development Division is a dedicated software engineering team operating within The Morfity ecosystem. We don't build websites — we architect digital products: SaaS platforms, API systems, cloud infrastructure, and custom applications designed for real scale.</p>
+        <p>Every product we ship is production-ready from day one. Clean architecture, tested code, documented APIs, deployed to cloud infrastructure that won't buckle under load.</p>
+        <div style="margin-top:32px"><a href="about.html" class="pill pill-outline-teal">Meet the Division →</a></div>
+      </div>
+      <div class="dept-caps">
+        <div class="dept-cap">
+          <div class="dept-cap-n">⚙️</div>
+          <h4>SaaS Platforms</h4>
+          <p>Multi-tenant applications with auth, billing, dashboards, and role-based access control.</p>
+        </div>
+        <div class="dept-cap accent">
+          <div class="dept-cap-n">🔗</div>
+          <h4>API Systems</h4>
+          <p>RESTful and GraphQL APIs built for performance, reliability, and developer experience.</p>
+        </div>
+        <div class="dept-cap">
+          <div class="dept-cap-n">☁️</div>
+          <h4>Cloud Architecture</h4>
+          <p>AWS infrastructure, containerised deployments, autoscaling, and CI/CD pipelines.</p>
+        </div>
+        <div class="dept-cap">
+          <div class="dept-cap-n">🚀</div>
+          <h4>MVP Launches</h4>
+          <p>From validated idea to live product in 6–10 weeks, built to survive your Series A.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Featured Work</div>
+      <h2>Products We've Built</h2>
+      <p>A selection of software products shipped by the Development Division for clients across the Middle East and beyond.</p>
+    </div>
+    <div class="work-grid">
+      <a href="case-studies.html" class="work-card">
+        <div class="work-card-img"><img src="site-images/preview/iouhj-01.jpg" alt="Travel Is Exciting platform"></div>
+        <div class="work-card-body">
+          <div class="work-cat">Travel · SaaS Platform</div>
+          <h3>Travel Is Exciting</h3>
+          <p>A full-stack travel booking platform with real-time inventory, multi-currency pricing, and a custom content CMS.</p>
+          <div class="work-stack"><span class="work-tag">Next.js</span><span class="work-tag">Node.js</span><span class="work-tag">PostgreSQL</span><span class="work-tag">AWS</span></div>
+        </div>
+      </a>
+      <a href="case-studies.html" class="work-card">
+        <div class="work-card-img"><img src="site-images/preview/iouhj-02.jpg" alt="Merchant Analytics Suite"></div>
+        <div class="work-card-body">
+          <div class="work-cat">E-commerce · Analytics SaaS</div>
+          <h3>Merchant Analytics Suite</h3>
+          <p>Real-time sales analytics, cohort tracking, and revenue forecasting for multi-store merchants.</p>
+          <div class="work-stack"><span class="work-tag">React</span><span class="work-tag">Node.js</span><span class="work-tag">Redis</span><span class="work-tag">Stripe</span></div>
+        </div>
+      </a>
+      <a href="case-studies.html" class="work-card">
+        <div class="work-card-img"><img src="site-images/preview/iouhj-03.jpg" alt="AI Studio Platform"></div>
+        <div class="work-card-body">
+          <div class="work-cat">AI · Automation Platform</div>
+          <h3>AI Studio Platform</h3>
+          <p>A no-code AI automation platform enabling teams to build, deploy, and monitor intelligent workflows.</p>
+          <div class="work-stack"><span class="work-tag">Next.js</span><span class="work-tag">Python</span><span class="work-tag">OpenAI</span><span class="work-tag">Docker</span></div>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:40px"><a href="portfolio.html" class="pill">View Full Portfolio →</a></div>
+  </div>
+</section>
+
+<div class="stat-strip">
+  <div class="stat-item"><span class="stat-n">99+</span><span class="stat-l">Products Shipped</span></div>
+  <div class="stat-item"><span class="stat-n">5+</span><span class="stat-l">Years Engineering</span></div>
+  <div class="stat-item"><span class="stat-n">8</span><span class="stat-l">Core Engineers</span></div>
+  <div class="stat-item"><span class="stat-n">100%</span><span class="stat-l">On-Time Delivery</span></div>
+</div>
+
+<section class="stack-preview">
+  <div class="container">
+    <div class="eyebrow">Engineering Stack</div>
+    <h2 class="stack-preview-title">Built With Modern, Proven Technology</h2>
+    <p class="stack-preview-sub">We use the same tools as the best engineering teams in the world — and we use them well.</p>
+    <div class="stack-categories">
+      <div>
+        <div class="stack-cat-label">Frontend</div>
+        <div class="stack-names">
+          <div class="stack-name">⚛ React</div>
+          <div class="stack-name">▲ Next.js</div>
+          <div class="stack-name">🎨 Tailwind CSS</div>
+        </div>
+      </div>
+      <div>
+        <div class="stack-cat-label">Backend</div>
+        <div class="stack-names">
+          <div class="stack-name">🟩 Node.js</div>
+          <div class="stack-name">🐍 Python</div>
+          <div class="stack-name">🔗 REST &amp; GraphQL</div>
+        </div>
+      </div>
+      <div>
+        <div class="stack-cat-label">Infrastructure</div>
+        <div class="stack-names">
+          <div class="stack-name">☁ AWS</div>
+          <div class="stack-name">🐳 Docker</div>
+          <div class="stack-name">⚡ CI/CD Pipelines</div>
+        </div>
+      </div>
+      <div>
+        <div class="stack-cat-label">Data</div>
+        <div class="stack-names">
+          <div class="stack-name">🐘 PostgreSQL</div>
+          <div class="stack-name">⚡ Redis</div>
+          <div class="stack-name">📊 Data Pipelines</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:40px"><a href="tech-stack.html" class="pill">Full Tech Stack →</a></div>
+  </div>
+</section>
+
+<section class="clients-section">
+  <p class="clients-label">Trusted by companies across the region</p>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <div class="client-item"><img src="mq2n0t3m-aesouls.avif" alt="AeSouls"></div>
+      <div class="client-item"><img src="mq2n0t3n-axis.avif" alt="Axis"></div>
+      <div class="client-item"><img src="mq2n0t3o-betutopia.avif" alt="Betutopia"></div>
+      <div class="client-item"><img src="mq2n0t3o-domo.avif" alt="Domo"></div>
+      <div class="client-item"><img src="mq2n0t3p-gucci.avif" alt="Gucci"></div>
+      <div class="client-item"><img src="mq2n0t3q-nub.avif" alt="Nub"></div>
+      <div class="client-item"><img src="mq2n0t3r-pull.avif" alt="Pull"></div>
+      <div class="client-item"><img src="mq2n0t3s-vauil.avif" alt="Vauil"></div>
+      <div class="client-item"><img src="mq2n0t3m-aesouls.avif" alt="AeSouls"></div>
+      <div class="client-item"><img src="mq2n0t3n-axis.avif" alt="Axis"></div>
+      <div class="client-item"><img src="mq2n0t3o-betutopia.avif" alt="Betutopia"></div>
+      <div class="client-item"><img src="mq2n0t3o-domo.avif" alt="Domo"></div>
+      <div class="client-item"><img src="mq2n0t3p-gucci.avif" alt="Gucci"></div>
+      <div class="client-item"><img src="mq2n0t3q-nub.avif" alt="Nub"></div>
+      <div class="client-item"><img src="mq2n0t3r-pull.avif" alt="Pull"></div>
+      <div class="client-item"><img src="mq2n0t3s-vauil.avif" alt="Vauil"></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="eyebrow">Let's Build Together</div>
+  <h2>Have a Product Idea?<br>We'll Engineer It.</h2>
+  <p>From discovery to deployment — our engineering team takes your concept and ships a production-ready product.</p>
+  <div class="cta-btns">
+    <a href="contact.html" class="pill pill-fill" style="background:#fff;color:#111;border-color:#fff">Build Your Product</a>
+    <a href="services.html" class="pill pill-white">See Our Services →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="mq2msxnm-image.png" alt="The Morfity" class="footer-logo">
+      <p class="footer-desc">The Development Division of The Morfity. Engineering SaaS products, web applications, APIs, and cloud systems for startups and enterprises.</p>
+      <span class="footer-badge">Beirut · Dubai · Remote</span>
+    </div>
+    <div class="footer-col">
+      <h4>Department</h4>
+      <a href="about.html">About Us</a>
+      <a href="tech-stack.html">Tech Stack</a>
+      <a href="case-studies.html">Case Studies</a>
+    </div>
+    <div class="footer-col">
+      <h4>Work</h4>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Start a Project</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 The Morfity Development Division. All rights reserved.</span>
+    <span>A division of The Morfity.</span>
+  </div>
+</footer>
+
+</body>
+</html>
